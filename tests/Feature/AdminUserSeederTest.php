@@ -30,4 +30,25 @@ class AdminUserSeederTest extends TestCase
 
         $this->assertTrue(Hash::check('kaizen@jaya1234', $user->password));
     }
+
+    public function test_admin_seeder_does_not_reset_an_existing_users_password(): void
+    {
+        putenv('ADMIN_EMAIL=admin@kaizen.com');
+        putenv('ADMIN_DEFAULT_PASSWORD=new-password');
+        putenv('ADMIN_PASSWORD=');
+
+        $user = User::factory()->create([
+            'email' => 'admin@kaizen.com',
+            'password' => Hash::make('original-password'),
+        ]);
+
+        $this->artisan('db:seed', ['--class' => AdminUserSeeder::class])
+            ->assertSuccessful();
+
+        $user->refresh();
+
+        $this->assertSame('admin', $user->role);
+        $this->assertTrue(Hash::check('original-password', $user->password));
+        $this->assertFalse(Hash::check('new-password', $user->password));
+    }
 }

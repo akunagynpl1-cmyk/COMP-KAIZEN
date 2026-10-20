@@ -19,9 +19,11 @@ class AdminUserSeeder extends Seeder
         }
 
         $admin = User::firstOrNew(['email' => $email]);
-        $admin->name = 'Admin';
+        if (! $admin->exists) {
+            $admin->name = 'Admin';
+            $admin->password = Hash::make($password);
+        }
         $admin->role = 'admin';
-        $admin->password = Hash::make($password);
         $admin->save();
     }
 }

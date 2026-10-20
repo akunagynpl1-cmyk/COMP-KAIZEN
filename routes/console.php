@@ -3,8 +3,12 @@
 use App\Console\Commands\ImportKaizenProductsCommand;
 use App\Console\Commands\ConsolidateGensetProductsCommand;
 use App\Console\Commands\SyncKaizenProductPhotosCommand;
+use App\Models\BlogPost;
+use App\Models\Portfolio;
 use App\Models\Product;
 use Database\Seeders\AdminUserSeeder;
+use Database\Seeders\BlogPostSeeder;
+use Database\Seeders\PortfolioSeeder;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -32,6 +36,22 @@ Artisan::command('kaizen:bootstrap-production', function () {
 
     if ($seedExitCode !== 0) {
         return $seedExitCode;
+    }
+
+    foreach ([
+        BlogPost::class => BlogPostSeeder::class,
+        Portfolio::class => PortfolioSeeder::class,
+    ] as $model => $seeder) {
+        if ($model::query()->doesntExist()) {
+            $seedExitCode = $this->call('db:seed', [
+                '--class' => $seeder,
+                '--force' => true,
+            ]);
+
+            if ($seedExitCode !== 0) {
+                return $seedExitCode;
+            }
+        }
     }
 
     if (Product::query()->doesntExist()) {

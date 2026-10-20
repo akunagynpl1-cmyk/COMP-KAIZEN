@@ -110,4 +110,29 @@ class PortfolioGalleryTest extends TestCase
             ->assertSee('storage/portfolio/event-1.jpg')
             ->assertSee('storage/portfolio/event-2.jpg');
     }
+
+    public function test_related_portfolios_have_readable_dark_mode_styles(): void
+    {
+        $portfolio = Portfolio::create([
+            'title' => 'Event Utama',
+            'slug' => 'event-utama',
+            'type' => 'event',
+        ]);
+
+        foreach (range(1, 3) as $index) {
+            Portfolio::create([
+                'title' => "Event Terkait {$index}",
+                'slug' => "event-terkait-{$index}",
+                'type' => 'event',
+            ]);
+        }
+
+        $this->get(route('portfolio.show', $portfolio))
+            ->assertOk()
+            ->assertSee('Event Portofolio Lainnya')
+            ->assertSee('portfolio-related-heading', false)
+            ->assertSee('portfolio-related-title', false)
+            ->assertSee('html.dark .portfolio-related-link', false)
+            ->assertSee('color: #f1f2f7', false);
+    }
 }

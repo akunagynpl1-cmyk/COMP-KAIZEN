@@ -2,6 +2,20 @@
 
 @section('title', $portfolio->title)
 
+@push('styles')
+<style>
+    .portfolio-related-heading { color: #25283a; }
+    .portfolio-related-link { color: #25283a; background: #fdf6fb; transition: background-color .2s, color .2s; }
+    .portfolio-related-link:hover,
+    .portfolio-related-link:focus-visible { color: #1736e8; background: #ffe4f5; }
+    .portfolio-related-title { color: inherit; }
+    html.dark .portfolio-related-heading { color: #f1f2f7; }
+    html.dark .portfolio-related-link { color: #f1f2f7; background: #202230; }
+    html.dark .portfolio-related-link:hover,
+    html.dark .portfolio-related-link:focus-visible { color: #fff; background: #2c3041; }
+</style>
+@endpush
+
 @section('content')
 <div class="container py-5">
     <nav aria-label="breadcrumb" class="mb-4">
@@ -127,11 +141,9 @@
 
             <!-- Related -->
             @if($related->count())
-            <h6 class="fw-700 mb-3">Event Portofolio Lainnya</h6>
+            <h6 class="portfolio-related-heading fw-700 mb-3">Event Portofolio Lainnya</h6>
             @foreach($related as $item)
-            <a href="{{ route('portfolio.show', $item) }}" class="d-flex align-items-center gap-3 text-decoration-none text-dark mb-3 p-2 rounded-3"
-               style="background:#fdf6fb; transition:background .2s;"
-               onmouseover="this.style.background='#ffe4f5'" onmouseout="this.style.background='#fdf6fb'">
+            <a href="{{ route('portfolio.show', $item) }}" class="portfolio-related-link d-flex align-items-center gap-3 text-decoration-none mb-3 p-2 rounded-3">
                 <div style="width:64px;height:64px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#ffeef9;display:flex;align-items:center;justify-content:center;">
                     @if($item->thumbnail)
                     <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}" style="width:100%;height:100%;object-fit:cover;">
@@ -140,7 +152,7 @@
                     @endif
                 </div>
                 <div>
-                    <div class="fw-600 small">{{ $item->title }}</div>
+                    <div class="portfolio-related-title fw-600 small">{{ $item->title }}</div>
                     @if($item->type)
                     <div class="text-muted" style="font-size:.75rem;">{{ ucfirst($item->type) }}</div>
                     @endif

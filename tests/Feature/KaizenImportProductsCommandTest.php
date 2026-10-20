@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\Category;
 use App\Models\BlogPost;
+use App\Models\Category;
+use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\ProductImage;
-use App\Models\Portfolio;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -48,7 +48,7 @@ class KaizenImportProductsCommandTest extends TestCase
         $this->assertSame(49, Product::query()->count());
         $this->assertSame(12, Category::query()->count());
         $this->assertSame(3, BlogPost::query()->count());
-        $this->assertSame(6, Portfolio::query()->count());
+        $this->assertSame(21, Portfolio::query()->count());
         $this->assertSame(0, Product::query()->where('status', false)->count());
         $this->assertSame(0, Product::query()->whereNotNull('price')->count());
         $this->assertDatabaseHas('products', [
@@ -63,7 +63,7 @@ class KaizenImportProductsCommandTest extends TestCase
         $this->assertSame(49, Product::query()->count());
         $this->assertSame(12, Category::query()->count());
         $this->assertSame(3, BlogPost::query()->count());
-        $this->assertSame(6, Portfolio::query()->count());
+        $this->assertSame(21, Portfolio::query()->count());
 
         $product = Product::query()->firstOrFail();
         Product::query()->update(['price' => 'TEST PRICE']);

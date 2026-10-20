@@ -14,10 +14,48 @@
 
     <div class="row g-5">
         <div class="col-lg-8">
-            @if($portfolio->thumbnail)
-            <div class="rounded-4 overflow-hidden mb-4 shadow-sm" style="max-height:450px;">
-                <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
-                     style="width:100%; height:450px; object-fit:cover;">
+            @php
+                $galleryImages = $portfolio->images->pluck('image_path')->all();
+                if (empty($galleryImages) && $portfolio->thumbnail) {
+                    $galleryImages = [$portfolio->thumbnail];
+                }
+            @endphp
+
+            @if(count($galleryImages) === 1)
+            <div class="rounded-4 overflow-hidden mb-4 shadow-sm">
+                <img src="{{ asset('storage/' . $galleryImages[0]) }}" alt="{{ $portfolio->title }}"
+                     style="width:100%; max-height:450px; object-fit:cover;">
+            </div>
+            @elseif(count($galleryImages) > 1)
+            <div id="portfolio-gallery-{{ $portfolio->id }}" class="carousel slide rounded-4 overflow-hidden mb-4 shadow-sm"
+                 data-bs-ride="false" aria-label="Galeri foto {{ $portfolio->title }}">
+                <div class="carousel-indicators">
+                    @foreach($galleryImages as $index => $image)
+                    <button type="button" data-bs-target="#portfolio-gallery-{{ $portfolio->id }}"
+                            data-bs-slide-to="{{ $index }}" @if($index === 0) class="active" aria-current="true" @endif
+                            aria-label="Slide {{ $index + 1 }}"></button>
+                    @endforeach
+                </div>
+                <div class="carousel-inner">
+                    @foreach($galleryImages as $index => $image)
+                    <div class="carousel-item @if($index === 0) active @endif">
+                        <img src="{{ asset('storage/' . $image) }}" alt="{{ $portfolio->title }} - foto {{ $index + 1 }}"
+                             style="width:100%; height:450px; object-fit:cover;">
+                    </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#portfolio-gallery-{{ $portfolio->id }}"
+                        data-bs-slide="prev" aria-label="Foto sebelumnya">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#portfolio-gallery-{{ $portfolio->id }}"
+                        data-bs-slide="next" aria-label="Foto berikutnya">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+            @else
+            <div class="rounded-4 mb-4 p-5 text-center text-muted" style="background:#fdf6fb;">
+                Dokumentasi foto belum tersedia.
             </div>
             @endif
 
@@ -37,7 +75,7 @@
             @endif
 
             @if($portfolio->description)
-            <div class="text-muted" style="line-height:1.9;">{{ $portfolio->description }}</div>
+            <div class="text-muted" style="line-height:1.9; white-space:pre-line;">{{ $portfolio->description }}</div>
             @endif
 
             @if($portfolio->video_file_url)
@@ -71,27 +109,6 @@
             </section>
             @endif
 
-            @php
-                $galleryImages = [];
-                if ($portfolio->images && $portfolio->images->isNotEmpty()) {
-                    $galleryImages = $portfolio->images->pluck('image_path')->all();
-                } elseif (!empty($portfolio->gallery)) {
-                    $galleryImages = is_array($portfolio->gallery) ? $portfolio->gallery : json_decode($portfolio->gallery, true);
-                }
-            @endphp
-
-            @if(!empty($galleryImages))
-            <h5 class="fw-700 mt-5 mb-3">Galeri Foto</h5>
-            <div class="row g-3">
-                @foreach($galleryImages as $img)
-                <div class="col-6 col-md-4">
-                    <div class="rounded-3 overflow-hidden" style="height:180px;">
-                        <img src="{{ asset('storage/' . $img) }}" alt="Gallery" style="width:100%;height:100%;object-fit:cover;">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            @endif
         </div>
 
         <div class="col-lg-4">

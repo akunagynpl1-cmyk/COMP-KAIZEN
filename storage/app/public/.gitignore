@@ -2,3 +2,6 @@
 !.gitignore
 !products/
 !products/**
+!portfolio/
+!portfolio/events/
+!portfolio/events/**

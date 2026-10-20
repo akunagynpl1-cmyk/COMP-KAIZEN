@@ -88,4 +88,26 @@ class PortfolioGalleryTest extends TestCase
             ->assertSee('storage/portfolio/videos/event.mp4')
             ->assertSee('https://www.youtube-nocookie.com/embed/abc123xyz_0');
     }
+
+    public function test_portfolio_displays_multiple_gallery_images_as_a_slideshow(): void
+    {
+        $portfolio = Portfolio::create([
+            'title' => 'Event dengan Slide',
+            'slug' => 'event-dengan-slide',
+            'type' => 'event',
+        ]);
+
+        $portfolio->images()->createMany([
+            ['image_path' => 'portfolio/event-1.jpg', 'order' => 1],
+            ['image_path' => 'portfolio/event-2.jpg', 'order' => 2],
+        ]);
+
+        $this->get(route('portfolio.show', $portfolio))
+            ->assertOk()
+            ->assertSee('data-bs-ride="false"', false)
+            ->assertSee('data-bs-slide="next"', false)
+            ->assertSee('data-bs-slide-to="1"', false)
+            ->assertSee('storage/portfolio/event-1.jpg')
+            ->assertSee('storage/portfolio/event-2.jpg');
+    }
 }

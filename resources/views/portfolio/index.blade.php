@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Portofolio')
-@section('meta_description', 'Galeri portofolio event dan pesta yang telah kami tangani. Lihat karya terbaik kami.')
+@section('title', 'Event Portofolio')
+@section('meta_description', 'Galeri event portofolio dan pesta yang telah kami tangani. Lihat karya terbaik kami.')
 
 @section('content')
 
@@ -10,10 +10,10 @@
         <nav aria-label="breadcrumb" class="justify-content-center d-flex mb-3">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:var(--primary);">Beranda</a></li>
-                <li class="breadcrumb-item active">Portofolio</li>
+                <li class="breadcrumb-item active">Event Portofolio</li>
             </ol>
         </nav>
-        <h1 class="section-title">Portofolio Kami</h1>
+        <h1 class="section-title">Event Portofolio Kami</h1>
         <div class="divider-pink mx-auto my-3"></div>
         <p class="section-subtitle">Momen-momen spesial yang telah kami wujudkan bersama pelanggan</p>
     </div>
@@ -21,7 +21,7 @@
     @if($portfolios->isEmpty())
     <div class="text-center py-5">
         <div style="font-size:4rem;">📷</div>
-        <h5 class="mt-3">Belum ada portofolio</h5>
+        <h5 class="mt-3">Belum ada event portofolio</h5>
     </div>
     @else
     <div class="row g-4">

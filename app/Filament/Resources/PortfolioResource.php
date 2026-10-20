@@ -20,20 +20,20 @@ class PortfolioResource extends Resource
 
     protected static ?string $navigationGroup = 'Katalog';
 
-    protected static ?string $navigationLabel = 'Portofolio';
+    protected static ?string $navigationLabel = 'Event Portofolio';
 
-    protected static ?string $modelLabel = 'portofolio';
+    protected static ?string $modelLabel = 'event portofolio';
 
-    protected static ?string $pluralModelLabel = 'portofolio';
+    protected static ?string $pluralModelLabel = 'event portofolio';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Informasi Portofolio')
+                Forms\Components\Section::make('Informasi Event Portofolio')
                     ->schema([
                         Forms\Components\TextInput::make('title')
-                            ->label('Judul portofolio')
+                            ->label('Judul event portofolio')
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -46,7 +46,7 @@ class PortfolioResource extends Resource
                             ->unique(ignoreRecord: true),
 
                         Forms\Components\TextInput::make('type')
-                            ->label('Tipe portofolio')
+                            ->label('Tipe event portofolio')
                             ->maxLength(100)
                             ->default('event')
                             ->required()
@@ -89,7 +89,7 @@ class PortfolioResource extends Resource
                             ->disk('public')
                             ->directory('portfolio')
                             ->imageEditor()
-                            ->helperText('Upload foto utama portofolio.'),
+                            ->helperText('Upload foto utama event portofolio.'),
 
                         Forms\Components\Repeater::make('images')
                             ->label('Galeri foto')

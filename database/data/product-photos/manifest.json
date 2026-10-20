@@ -10,7 +10,7 @@
       "file": "flooring.jpg",
       "original_name": "flooring.jpg",
       "products": [
-        {"slug": "flooring-karpet-layak"},
+        {"slug": "flooring"},
         {"slug": "flooring-karpet-baru"}
       ]
     },
@@ -41,7 +41,7 @@
       "file": "karpet.jpg",
       "original_name": "karpet.jpg",
       "products": [
-        {"slug": "flooring-karpet-layak"},
+        {"slug": "flooring"},
         {"slug": "flooring-karpet-baru"},
         {"slug": "karpet-layak-dan-karpet-baru"}
       ]
@@ -98,7 +98,6 @@
       "original_name": "led-display p2.6,curved indoor&outdoor.jpg",
       "products": [
         {"slug": "led-screen-p26-curve-indoor"},
-        {"slug": "led-screen-p26-curve-outdoor"},
         {"slug": "led-screen-p26-indoor-dan-outdoor"}
       ]
     },
@@ -125,10 +124,7 @@
       "file": "partisi-r8-dan-rowing.jpg",
       "original_name": "partisi-r8-dan-rowing.jpg",
       "products": [
-        {"slug": "partisi-r8-ruang-2-x-2m"},
-        {"slug": "partisi-r8-ruang-2-x-3m"},
-        {"slug": "partisi-r8-ruang-3-x-3m"},
-        {"slug": "partisi-r8-ruang-3-x-4m"}
+        {"slug": "partisi-r8"}
       ]
     },
     {
@@ -248,7 +244,6 @@
       "original_name": "tenda-sarnafil 3x3m.jpg",
       "products": [
         {"slug": "tenda-sarnafil-3x3m"},
-        {"slug": "tenda-sarnafil-flooring-karpet-layak-3x3m"},
         {"slug": "tenda-sarnafil-3x3m-dan-5x5m"}
       ]
     },
@@ -257,7 +252,6 @@
       "original_name": "tenda-sarnafil 5x5m.jpg",
       "products": [
         {"slug": "tenda-sarnafil-5x5m"},
-        {"slug": "tenda-sarnafil-flooring-karpet-layak-5x5m"},
         {"slug": "tenda-sarnafil-3x3m-dan-5x5m"}
       ]
     },

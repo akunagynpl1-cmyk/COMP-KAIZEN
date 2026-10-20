@@ -162,7 +162,7 @@
 <section class="py-5" style="background:var(--light-bg);">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="section-title">Portofolio</h2>
+            <h2 class="section-title">Event Portofolio</h2>
             <div class="divider-pink mx-auto my-3"></div>
             <p class="section-subtitle">Galeri momen spesial yang telah kami wujudkan</p>
         </div>
@@ -187,7 +187,7 @@
         </div>
         <div class="text-center mt-4">
             <a href="{{ route('portfolio.index') }}" class="btn btn-primary-custom">
-                Lihat Semua Portofolio <i class="bi bi-arrow-right ms-1"></i>
+                Lihat Semua Event Portofolio <i class="bi bi-arrow-right ms-1"></i>
             </a>
         </div>
     </div>

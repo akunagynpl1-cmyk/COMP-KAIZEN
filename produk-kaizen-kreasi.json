@@ -30,20 +30,6 @@
     },
     {
       "category": "Tenda",
-      "name": "Tenda Sarnafil + Flooring + Karpet Layak 3x3m",
-      "unit": "per unit",
-      "description": "Ukuran 3x3 meter, sudah termasuk flooring dan karpet layak.",
-      "sort_order": 5
-    },
-    {
-      "category": "Tenda",
-      "name": "Tenda Sarnafil + Flooring + Karpet Layak 5x5m",
-      "unit": "per unit",
-      "description": "Ukuran 5x5 meter, sudah termasuk flooring dan karpet layak.",
-      "sort_order": 6
-    },
-    {
-      "category": "Tenda",
       "name": "Tenda Konvensional",
       "unit": "per m²",
       "description": "Tenda konvensional untuk berbagai kebutuhan acara.",
@@ -58,7 +44,7 @@
     },
     {
       "category": "Flooring & Karpet",
-      "name": "Flooring + Karpet Layak",
+      "name": "Flooring",
       "unit": "per m²",
       "description": "Tinggi maksimal 10cm.",
       "sort_order": 9
@@ -121,24 +107,10 @@
     },
     {
       "category": "LED Screen",
-      "name": "LED Screen P2.6 Curve Outdoor",
-      "unit": "per m²",
-      "description": "Tipe pixel pitch P2.6 model lengkung untuk luar ruangan.",
-      "sort_order": 22
-    },
-    {
-      "category": "LED Screen",
       "name": "LED Cube",
       "unit": "per m²",
       "description": "LED model kubus.",
       "sort_order": 23
-    },
-    {
-      "category": "LED Screen",
-      "name": "Operator LED (Biasa)",
-      "unit": "per paket",
-      "description": "Layanan operator LED biasa.",
-      "sort_order": 24
     },
     {
       "category": "LED Screen",
@@ -156,24 +128,10 @@
     },
     {
       "category": "Smart TV",
-      "name": "Smart TV 75 Inch",
+      "name": "Smart TV 75 Inch, 65 Inch, dan 55 Inch",
       "unit": "per unit",
       "description": "Sudah termasuk kabel power 15m dan kabel HDMI 20m.",
       "sort_order": 27
-    },
-    {
-      "category": "Smart TV",
-      "name": "Smart TV 65 Inch",
-      "unit": "per unit",
-      "description": "Sudah termasuk kabel power 15m dan kabel HDMI 20m.",
-      "sort_order": 28
-    },
-    {
-      "category": "Smart TV",
-      "name": "Smart TV 55 Inch",
-      "unit": "per unit",
-      "description": "Sudah termasuk kabel power 15m dan kabel HDMI 20m.",
-      "sort_order": 29
     },
     {
       "category": "Sound System, Lighting & Pendingin",
@@ -296,31 +254,10 @@
     },
     {
       "category": "Partisi",
-      "name": "Partisi R8 Ruang 2 x 2m",
+      "name": "Partisi R8",
       "unit": "per ruang",
-      "description": "Ruang berukuran 2 x 2 meter.",
+      "description": "Partisi R8 untuk kebutuhan pembagian area event.",
       "sort_order": 47
-    },
-    {
-      "category": "Partisi",
-      "name": "Partisi R8 Ruang 2 x 3m",
-      "unit": "per ruang",
-      "description": "Ruang berukuran 2 x 3 meter.",
-      "sort_order": 48
-    },
-    {
-      "category": "Partisi",
-      "name": "Partisi R8 Ruang 3 x 3m",
-      "unit": "per ruang",
-      "description": "Ruang berukuran 3 x 3 meter.",
-      "sort_order": 49
-    },
-    {
-      "category": "Partisi",
-      "name": "Partisi R8 Ruang 3 x 4m",
-      "unit": "per ruang",
-      "description": "Ruang berukuran 3 x 4 meter.",
-      "sort_order": 50
     },
     {
       "category": "Perangkat Komunikasi",

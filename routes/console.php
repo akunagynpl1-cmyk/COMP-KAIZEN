@@ -2,6 +2,7 @@
 
 use App\Console\Commands\ImportKaizenProductsCommand;
 use App\Console\Commands\ConsolidateGensetProductsCommand;
+use App\Console\Commands\ConsolidateKaizenCatalogCommand;
 use App\Console\Commands\SyncKaizenProductPhotosCommand;
 use App\Models\BlogPost;
 use App\Models\Portfolio;
@@ -64,7 +65,13 @@ Artisan::command('kaizen:bootstrap-production', function () {
         }
     }
 
-    return $this->call(ConsolidateGensetProductsCommand::class);
+    $consolidateGensetExitCode = $this->call(ConsolidateGensetProductsCommand::class);
+
+    if ($consolidateGensetExitCode !== 0) {
+        return $consolidateGensetExitCode;
+    }
+
+    return $this->call(ConsolidateKaizenCatalogCommand::class);
 })->purpose('Seed the admin user and import the Kaizen catalog when the products table is empty');
 
 Artisan::command('kaizen:production-startup {--manifest=database/data/product-photos/manifest.json : Photo mapping manifest}', function () {

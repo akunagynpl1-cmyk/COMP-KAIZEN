@@ -195,7 +195,7 @@
                     <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">Produk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('portfolio.*') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">Portofolio</a>
+                    <a class="nav-link {{ request()->routeIs('portfolio.*') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">Event Portofolio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('blog.*') ? 'active' : '' }}" href="{{ route('blog.index') }}">Blog</a>
@@ -253,7 +253,7 @@
                 <ul class="list-unstyled small">
                     <li class="mb-2"><a href="{{ route('home') }}">Beranda</a></li>
                     <li class="mb-2"><a href="{{ route('products.index') }}">Produk</a></li>
-                    <li class="mb-2"><a href="{{ route('portfolio.index') }}">Portofolio</a></li>
+                    <li class="mb-2"><a href="{{ route('portfolio.index') }}">Event Portofolio</a></li>
                     <li class="mb-2"><a href="{{ route('blog.index') }}">Blog</a></li>
                     <li class="mb-2"><a href="{{ route('about') }}">Tentang Kami</a></li>
                     <li class="mb-2"><a href="{{ route('contact') }}">Kontak</a></li>

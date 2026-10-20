@@ -45,7 +45,7 @@ class KaizenImportProductsCommandTest extends TestCase
 
         $this->artisan('kaizen:production-startup')->assertSuccessful();
 
-        $this->assertSame(58, Product::query()->count());
+        $this->assertSame(49, Product::query()->count());
         $this->assertSame(12, Category::query()->count());
         $this->assertSame(3, BlogPost::query()->count());
         $this->assertSame(6, Portfolio::query()->count());
@@ -60,7 +60,7 @@ class KaizenImportProductsCommandTest extends TestCase
 
         $this->artisan('kaizen:production-startup')->assertSuccessful();
 
-        $this->assertSame(58, Product::query()->count());
+        $this->assertSame(49, Product::query()->count());
         $this->assertSame(12, Category::query()->count());
         $this->assertSame(3, BlogPost::query()->count());
         $this->assertSame(6, Portfolio::query()->count());
@@ -83,7 +83,7 @@ class KaizenImportProductsCommandTest extends TestCase
             '--manifest' => 'storage/framework/testing/missing-photo-manifest.json',
         ])->assertSuccessful();
 
-        $this->assertSame(58, Product::query()->count());
+        $this->assertSame(49, Product::query()->count());
         $this->assertSame(12, Category::query()->count());
     }
 
@@ -162,7 +162,7 @@ class KaizenImportProductsCommandTest extends TestCase
 
             $this->artisan('kaizen:production-startup')->assertSuccessful();
 
-            $this->assertSame(58, Product::query()->count());
+            $this->assertSame(49, Product::query()->count());
             $this->assertSame(12, Category::query()->count());
             $newPhotoProductSlugs = [
                 'processor-novastar-vx16s-vx600-vx400',
@@ -182,7 +182,7 @@ class KaizenImportProductsCommandTest extends TestCase
             $newPhotoProducts = Product::query()->whereIn('slug', $newPhotoProductSlugs);
             $this->assertSame(0, (clone $newPhotoProducts)->where('status', false)->count());
             $this->assertSame(0, (clone $newPhotoProducts)->whereNotNull('price')->count());
-            $this->assertSame(49, Product::query()->whereNotNull('thumbnail')->count());
+            $this->assertSame(43, Product::query()->whereNotNull('thumbnail')->count());
             $this->assertSame(3, ProductImage::query()->count());
             $this->assertCount(40, Storage::disk('public')->allFiles('products'));
             $this->assertSame(1, Category::query()->where('slug', 'produksi-branding')->count());
@@ -206,9 +206,9 @@ class KaizenImportProductsCommandTest extends TestCase
 
             $this->artisan('kaizen:production-startup')->assertSuccessful();
 
-            $this->assertSame(58, Product::query()->count());
+            $this->assertSame(49, Product::query()->count());
             $this->assertSame(12, Category::query()->count());
-            $this->assertSame(49, Product::query()->whereNotNull('thumbnail')->count());
+            $this->assertSame(43, Product::query()->whereNotNull('thumbnail')->count());
             $this->assertSame(3, ProductImage::query()->count());
             $this->assertCount(40, Storage::disk('public')->allFiles('products'));
         } finally {

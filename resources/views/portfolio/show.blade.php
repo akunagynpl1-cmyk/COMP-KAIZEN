@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:var(--primary);">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}" style="color:var(--primary);">Portofolio</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}" style="color:var(--primary);">Event Portofolio</a></li>
             <li class="breadcrumb-item active">{{ $portfolio->title }}</li>
         </ol>
     </nav>
@@ -41,7 +41,7 @@
             @endif
 
             @if($portfolio->video_file_url)
-            <section class="mt-4" aria-label="Video portofolio">
+            <section class="mt-4" aria-label="Video event portofolio">
                 <h5 class="fw-700 mb-3">Video Upload</h5>
                 <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
                     <video controls preload="metadata">
@@ -53,7 +53,7 @@
             @endif
 
             @if($portfolio->video_embed_url)
-            <section class="mt-4" aria-label="Video portofolio">
+            <section class="mt-4" aria-label="Video event portofolio">
                 <h5 class="fw-700 mb-3">Video</h5>
                 <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
                     <iframe src="{{ $portfolio->video_embed_url }}" title="Video {{ $portfolio->title }}"
@@ -62,7 +62,7 @@
                 </div>
             </section>
             @elseif($portfolio->video_is_file)
-            <section class="mt-4" aria-label="Video portofolio">
+            <section class="mt-4" aria-label="Video event portofolio">
                 <h5 class="fw-700 mb-3">Video</h5>
                 <video class="w-100 rounded-3" controls preload="metadata">
                     <source src="{{ $portfolio->video_url }}">
@@ -99,7 +99,7 @@
             <div class="card border-0 shadow p-4 mb-4" style="border-radius:16px; background:linear-gradient(135deg,#fdf6fb,#fff);">
                 <h6 class="fw-700 mb-3">Ingin event seperti ini?</h6>
                 <p class="text-muted small mb-4">Hubungi kami untuk konsultasi gratis dan penawaran terbaik!</p>
-                <a href="https://wa.me/{{ config('company.whatsapp') }}?text={{ urlencode('Halo, saya tertarik untuk membuat event seperti portofolio "' . $portfolio->title . '". Boleh konsultasi?') }}"
+                <a href="https://wa.me/{{ config('company.whatsapp') }}?text={{ urlencode('Halo, saya tertarik untuk membuat event seperti Event Portofolio "' . $portfolio->title . '". Boleh konsultasi?') }}"
                    class="btn btn-success rounded-pill w-100 mb-2" target="_blank">
                     <i class="bi bi-whatsapp me-2"></i>Chat WhatsApp
                 </a>
@@ -110,7 +110,7 @@
 
             <!-- Related -->
             @if($related->count())
-            <h6 class="fw-700 mb-3">Portofolio Lainnya</h6>
+            <h6 class="fw-700 mb-3">Event Portofolio Lainnya</h6>
             @foreach($related as $item)
             <a href="{{ route('portfolio.show', $item) }}" class="d-flex align-items-center gap-3 text-decoration-none text-dark mb-3 p-2 rounded-3"
                style="background:#fdf6fb; transition:background .2s;"

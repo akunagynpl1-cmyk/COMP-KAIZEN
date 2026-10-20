@@ -19,7 +19,7 @@ class ConsolidateKaizenCatalogCommand extends Command
         $this->deleteProducts([
             'tenda-sarnafil-flooring-karpet-layak-3x3m',
             'tenda-sarnafil-flooring-karpet-layak-5x5m',
-            'led-screen-p2-6-curve-outdoor',
+            'led-screen-p26-curve-outdoor',
             'operator-led-biasa',
         ]);
 

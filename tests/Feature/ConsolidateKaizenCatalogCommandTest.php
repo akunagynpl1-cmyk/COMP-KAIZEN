@@ -26,7 +26,7 @@ class ConsolidateKaizenCatalogCommandTest extends TestCase
         $products = [
             ['Tenda Sarnafil + Flooring + Karpet Layak 3x3m', 'tenda-sarnafil-flooring-karpet-layak-3x3m'],
             ['Tenda Sarnafil + Flooring + Karpet Layak 5x5m', 'tenda-sarnafil-flooring-karpet-layak-5x5m'],
-            ['LED Screen P2.6 Curve Outdoor', 'led-screen-p2-6-curve-outdoor'],
+            ['LED Screen P2.6 Curve Outdoor', 'led-screen-p26-curve-outdoor'],
             ['Operator LED (Biasa)', 'operator-led-biasa'],
             ['Flooring + Karpet Layak', 'flooring-karpet-layak'],
             ['Smart TV 75 Inch', 'smart-tv-75-inch'],
@@ -78,7 +78,7 @@ class ConsolidateKaizenCatalogCommandTest extends TestCase
         $this->assertSame(0, Product::query()->whereIn('slug', [
             'tenda-sarnafil-flooring-karpet-layak-3x3m',
             'tenda-sarnafil-flooring-karpet-layak-5x5m',
-            'led-screen-p2-6-curve-outdoor',
+            'led-screen-p26-curve-outdoor',
             'operator-led-biasa',
             'smart-tv-75-inch',
             'smart-tv-65-inch',

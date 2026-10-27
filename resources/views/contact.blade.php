@@ -35,10 +35,8 @@
                     <div style="width:48px;height:48px;border-radius:12px;background:#ffe4f5;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">📞</div>
                     <div>
                         <div class="fw-600 small mb-1">Telepon / WhatsApp</div>
-                        @foreach (array_merge([config('company.phone')], config('company.additional_phones', [])) as $phone)
-                            <a href="tel:{{ $phone }}" class="text-muted small d-block text-decoration-none">{{ $phone }}</a>
-                        @endforeach
-                        <a href="https://wa.me/{{ config('company.whatsapp') }}" class="text-muted small text-decoration-none" target="_blank">WhatsApp</a>
+                        <a href="tel:{{ preg_replace('/\D+/', '', config('company.phone')) }}" class="text-muted small d-block text-decoration-none">{{ config('company.phone') }}</a>
+                        <a href="https://wa.me/{{ config('company.whatsapp') }}" class="text-muted small text-decoration-none" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                     </div>
                 </div>
 

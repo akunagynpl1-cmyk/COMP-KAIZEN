@@ -21,7 +21,7 @@ class Product extends Model {
     }
     
     public function getWhatsappUrlAttribute() {
-        $phone = config('company.whatsapp', '6281234567890');
+        $phone = config('company.whatsapp', '6281119998630');
         $text = urlencode('Halo, saya tertarik untuk menyewa ' . $this->name . '. Mohon informasi lebih lanjut.');
         return "https://wa.me/{$phone}?text={$text}";
     }

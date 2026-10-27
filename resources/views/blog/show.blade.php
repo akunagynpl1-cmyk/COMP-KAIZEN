@@ -58,7 +58,7 @@
             <div class="mt-5 p-4 rounded-4" style="background:#fdf6fb;">
                 <h6 class="fw-700 mb-3">Bagikan Artikel Ini</h6>
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="https://wa.me/?text={{ urlencode($blogPost->title . ' - ' . url()->current()) }}"
+                    <a href="https://wa.me/{{ config('company.whatsapp') }}?text={{ urlencode($blogPost->title . ' - ' . url()->current()) }}"
                        class="btn btn-success btn-sm rounded-pill" target="_blank">
                         <i class="bi bi-whatsapp me-1"></i>WhatsApp
                     </a>
